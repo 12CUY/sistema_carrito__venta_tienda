@@ -1,11 +1,19 @@
-# sera el script que utilizamos para gestionar la aplicacion(flask-script)
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+from aplicacion import config
 
-from flask_script import Manager
-from aplicacion.app import app
-# creacion de la interfaz || debug habilita el depurador de flask
-manager = Manager (app)
-app.config['DEBUG'] = True
+app = Flask(__name__)
+app.config.from_object(config)
+Bootstrap(app)
+db = SQLAlchemy(app)
 
-# inicia la aplicacion  de flask
-if  __name__ == '__main__': 
-    manager.run()
+
+@app.route('/')
+def inicio():
+    return render_template("inicio.html")
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("error.html", error="Página no encontrada..."), 404
