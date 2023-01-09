@@ -1,0 +1,6 @@
+ ficheros de modulos necesarios para la aplicación funcion muy estable
+Flask
+Flask-Script
+Flask-Boostrap 
+Flask-WTF
+Flask-Sqlalchemy
