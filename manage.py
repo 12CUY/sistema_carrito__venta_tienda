@@ -2,9 +2,9 @@ from flask_script import Manager
 from aplicacion.app import app, db
 from aplicacion.models import *
 
-
 manager = Manager(app)
 app.config['DEBUG'] = True  # Ensure debugger will load.
+
 
 @manager.command
 def create_tables():
@@ -65,6 +65,7 @@ def add_data_tables():
         juego = Articulos(**jue)
         db.session.add(juego)
         db.session.commit()
-        
-if __name__ == "__main__":
+
+
+if __name__ == '__main__':
     manager.run()

@@ -1,8 +1,10 @@
 # En este fichero se definen los modelos correspondientes al modelo de datos
 from sqlalchemy import Boolean, Column, ForeignKey
 from sqlalchemy import DateTime, Integer, String, Text, Float
-from sqlalchemy.orm import relationaship
+from sqlalchemy.orm import relationship
 from aplicacion.app import db
+
+
 class Categorias(db.Model):
     """Categorías de los artículos"""
     __tablename__ = 'categorias'
@@ -12,6 +14,7 @@ class Categorias(db.Model):
 
     def __repr__(self):
         return (u'<{self.__class__.__name__}: {self.id}>'.format(self=self))
+
 
 class Articulos(db.Model):
     """Artículos de nuestra tienda"""
