@@ -11,9 +11,11 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def inicio():
-    return render_template("inicio.html")
+    from aplicacion.models import Articulos
+    articulos = Articulos.query.all()
+    return render_template("inicio.html", articulos=articulos)
 
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template("error.html", error="Página no encontrada..."), 404
+    return render_template("error.html", error="Página no encontrada..."), 404 
